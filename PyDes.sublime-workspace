@@ -11,15 +11,49 @@
 			"file": "pyDes.py",
 			"settings":
 			{
-				"buffer_size": 0,
+				"buffer_size": 32277,
 				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "Searching 5 files for \"__init\"\n\nE:\\资料\\项目代码\\PyDes\\pyDes.py:\n  106  # The base class shared by des and triple des.\n  107  class _baseDes(object):\n  108:     def __init__(self, mode=ECB, IV=None, pad=None, padmode=PAD_NORMAL):\n  109          if IV:\n  110              IV = self._guardAgainstUnicode(IV)\n  ...\n  395  \n  396      # Initialisation\n  397:     def __init__(self, key, mode=ECB, IV=None, pad=None, padmode=PAD_NORMAL):\n  398          # Sanity checking of arguments.\n  399          if len(key) != 8:\n  400              raise ValueError(\"Invalid DES key size. Key must be exactly 8 bytes long.\")\n  401:         _baseDes.__init__(self, mode, IV, pad, padmode)\n  402          self.key_size = 8\n  403  \n  ...\n  706          with this instance.\n  707      \"\"\"\n  708:     def __init__(self, key, mode=ECB, IV=None, pad=None, padmode=PAD_NORMAL):\n  709:         _baseDes.__init__(self, mode, IV, pad, padmode)\n  710          self.setKey(key)\n  711  \n\n5 matches in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 971,
+				"line_ending": "Windows",
+				"name": "Find Results",
+				"scratch": true
 			}
 		},
 		{
 			"file": "PyDes.sublime-workspace",
 			"settings":
 			{
-				"buffer_size": 2196,
+				"buffer_size": 4688,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "PyDes.sublime-project",
+			"settings":
+			{
+				"buffer_size": 60,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "test_pydes.py",
+			"settings":
+			{
+				"buffer_size": 10827,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": ".gitignore",
+			"settings":
+			{
+				"buffer_size": 6,
 				"line_ending": "Unix"
 			}
 		}
@@ -27,15 +61,15 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 260.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 232.0
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 125.0
 	},
 	"distraction_free":
 	{
@@ -53,13 +87,14 @@
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 34.0
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 90.0,
 		"where_history":
 		[
+			""
 		]
 	},
 	"find_state":
@@ -67,6 +102,14 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"__init",
+			"triple_des",
+			"__sbox",
+			"__permutate",
+			"__expansion_table",
+			"data",
+			"encrypt",
+			"unhex"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -84,7 +127,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -92,7 +135,175 @@
 					"file": "pyDes.py",
 					"settings":
 					{
-						"buffer_size": 0,
+						"buffer_size": 32277,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14272,
+								14272
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6258.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"settings":
+					{
+						"buffer_size": 971,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										159,
+										165
+									],
+									[
+										357,
+										363
+									],
+									[
+										626,
+										632
+									],
+									[
+										777,
+										783
+									],
+									[
+										871,
+										877
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								971,
+								971
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "PyDes.sublime-workspace",
+					"settings":
+					{
+						"buffer_size": 4688,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								869,
+								869
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 600.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "PyDes.sublime-project",
+					"settings":
+					{
+						"buffer_size": 60,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								60,
+								60
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "test_pydes.py",
+					"settings":
+					{
+						"buffer_size": 10827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								225,
+								252
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Python/Python.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": ".gitignore",
+					"settings":
+					{
+						"buffer_size": 6,
 						"regions":
 						{
 						},
@@ -105,37 +316,10 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/Python/Python.tmLanguage"
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "PyDes.sublime-workspace",
-					"settings":
-					{
-						"buffer_size": 2196,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								224,
-								224
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 2295.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -184,16 +368,20 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"",
+				"pyDes.py"
+			]
 		],
 		"width": 0.0
 	},
 	"select_project":
 	{
-		"height": 0.0,
+		"height": 500.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 380.0
 	},
 	"show_minimap": true,
 	"show_open_files": false,
