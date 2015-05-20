@@ -52,7 +52,14 @@ class CSafeServer():
 			realKeyInf.extend(decKeyInf)
 			i += keyLen;
 
+		pos = 0
+		mainKey = []
 		#获取主密钥
+		i = 0
+		while (i < keyLen):
+			mainKey.extend(self.m_keyMap[ord(realKeyInf[i+pos])])
+			i += 1
+		pos += keyLen;
 		
 		#pos = 0
 		#mainKeyIndexs = realKeyInf + pos
@@ -69,7 +76,6 @@ class CSafeServer():
 		pass
 	def createAccessRep(self, access, accessLen):
 		keyInf = self.getAccessKeyInf()
-		print keyInf
 		accessRep = []
 		self.__decode(keyInf, self.KEY_INF_LEN, access, accessLen, accessRep)
 
