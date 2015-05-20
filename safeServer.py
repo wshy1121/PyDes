@@ -38,7 +38,7 @@ class CSafeServer():
 			keyInf[i] = self.m_keyMap[i];
 		return keyInf
 
-	def getRealKey(self, keyInf, keyInfLen, pKey):
+	def getRealKey(self, keyInf, keyInfLen):
 		keyLen = self.SAFE_KEY_LEN;
 		if keyInfLen != self.KEY_INF_LEN:
 			return ;
@@ -95,18 +95,27 @@ class CSafeServer():
 
 		return realKey
 
-	def __decode(self, keyInf, keyInfLen, pSrc, srcLen, pDst):
+	def __decode(self, keyInf, keyInfLen, pSrc, srcLen):
 		if keyInfLen != self.KEY_INF_LEN:
 			return 
 
 		realKey = []
-		self.getRealKey(keyInf, keyInfLen, realKey)
+		realKey = self.getRealKey(keyInf, keyInfLen)
 
-		pass
+		realKeyDes = triple_des(''.join(realKey))
+		
+		decSrc = realKeyDes.decrypt(pSrc[:srcLen])
+		return decSrc
+
 	def createAccessRep(self, access, accessLen):
 		keyInf = self.getAccessKeyInf()
+		decAccessRep = self.__decode(keyInf, self.KEY_INF_LEN, access, accessLen)
+
 		accessRep = []
-		self.__decode(keyInf, self.KEY_INF_LEN, access, accessLen, accessRep)
+		i = 0
+		while (i < accessLen):
+			accessRep.extend(self.m_accessMap[ord(decAccessRep[i])])
+			i += 1
 
 		return accessRep
 
@@ -116,11 +125,6 @@ class CSafeServer():
 
 
 
-if __name__ == '__main__':
-    #_example_des_()
-    #_example_triple_des_()
-
-    
+if __name__ == '__main__': 
     safe_server = CSafeServer();
-
-    safe_server.createAccessRep("12", 16)
+    print safe_server.createAccessRep("jeuqqpke", 8)
