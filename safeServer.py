@@ -9,7 +9,7 @@ class CSafeServer():
 	
 	def __memset(self, mem, num, size):
 		for i in xrange(size):
-			mem[i] = num
+			mem[i] = chr(num)
 			
 
 	def __init__(self):
@@ -21,10 +21,8 @@ class CSafeServer():
 		while (i < self.KEY_MAP_SIZE):
 			self.__memset(key, i, keyLen)
 			i+= keyLen;
-   			d = keyDes.encrypt("12345678")
-   			keyDes.decrypt(key)
-   			
-   			self.m_keyMap.extend(key)
+			encKey = keyDes.encrypt(''.join(key))
+   			self.m_keyMap.extend(encKey)
 
 	def test(self):
 		print self.m_keyMap
