@@ -5,6 +5,7 @@ class CSafeServer():
 	"""DES encryption/decrytpion class"""
 	KEY_MAP_SIZE = 256
 	SAFE_KEY_LEN = 16
+	KEY_INF_LEN = KEY_MAP_SIZE + SAFE_KEY_LEN*2
 	m_mainKey = "amwfqp1121amwfqp"
 	m_accessMap = [None] * KEY_MAP_SIZE;
 	m_keyMap = []
@@ -29,8 +30,19 @@ class CSafeServer():
 		for i in xrange(self.KEY_MAP_SIZE):
 			self.m_accessMap[i] = keyArray[ord(self.m_keyMap[i])%26];
 
+	def getAccessKeyInf(self):
+		keyInf = ['\x11'] * self.KEY_INF_LEN;
+		for i in xrange(self.KEY_MAP_SIZE):
+			keyInf[i] = self.m_keyMap[i];
+		return keyInf
+
+	def createAccessRep(self, access, accessLen):
+
+		return accessRep
+
 	def test(self):
 		print self.m_keyMap
+		print self.KEY_INF_LEN
 
 
 
@@ -40,4 +52,4 @@ if __name__ == '__main__':
 
     
     safe_server = CSafeServer();
-    safe_server.test();
+    safe_server.getAccessKeyInf()
