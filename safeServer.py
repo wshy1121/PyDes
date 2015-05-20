@@ -60,11 +60,16 @@ class CSafeServer():
 			mainKey.extend(self.m_keyMap[ord(realKeyInf[i+pos])])
 			i += 1
 		pos += keyLen;
-		
-		#pos = 0
-		#mainKeyIndexs = realKeyInf + pos
+		#获取密钥索引映射表:先用主密钥解密，再用m_keyMap 映射回来	
+		keyMapIndexs = []
+		mainKeyDes = triple_des(''.join(mainKey))
+		i = 0
+		while (i < self.KEY_MAP_SIZE):
+			decRealKeyInf = mainKeyDes.decrypt(''.join(realKeyInf[i+pos:i+pos+keyLen]))
+			keyMapIndexs.extend(decRealKeyInf)
+			i+= keyLen;
+		print keyMapIndexs
 
-		pass
 
 	def __decode(self, keyInf, keyInfLen, pSrc, srcLen, pDst):
 		if keyInfLen != self.KEY_INF_LEN:
