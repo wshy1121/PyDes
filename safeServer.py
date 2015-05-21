@@ -124,7 +124,18 @@ class CSafeServer():
 		print self.KEY_INF_LEN
 
 
+def main():
+    if len(sys.argv) != 2:
+    	return  
+    access = sys.argv[1]
+    accessLen = len(sys.argv[1])
+    
+    if accessLen != 8 :
+    	return 
+
+    safe_server = CSafeServer()
+    print safe_server.createAccessRep(''.join(access), accessLen)
 
 if __name__ == '__main__': 
-    safe_server = CSafeServer();
-    print safe_server.createAccessRep("jeuqqpke", 8)
+	main()
+
